@@ -10,8 +10,11 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/  # Commented out - we need ex_app/lib/
 lib64/
+
+# But ignore Python's lib directory patterns
+site-packages/
 parts/
 sdist/
 var/
