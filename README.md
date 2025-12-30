@@ -339,15 +339,15 @@ LLM_EXTERNAL_MODEL: gpt-4o-mini
 | ⭐ **Star on GitHub** | Give us a star to show your support! |
 | 🐛 **Report Issues** | Help us improve by reporting bugs |
 | 💻 **Contribute Code** | PRs are always welcome |
-| ☕ **Buy Me a Coffee** | [buymeacoffee.com/ihsanmokhlis](https://buymeacoffee.com/ihsanmokhlis) |
-| 💝 **GitHub Sponsors** | [github.com/sponsors/ihsanmokhlis](https://github.com/sponsors/ihsanmokhlis) |
+| ☕ **Buy Me a Coffee** | [buymeacoffee.com/ihsanmokhlisse](https://buymeacoffee.com/ihsanmokhlisse) |
+| 💝 **GitHub Sponsors** | [github.com/sponsors/ihsanmokhlisse](https://github.com/sponsors/ihsanmokhlisse) |
 | 🏢 **Enterprise Support** | Contact for commercial licensing |
 
 <p align="center">
-  <a href="https://buymeacoffee.com/ihsanmokhlis">
+  <a href="https://buymeacoffee.com/ihsanmokhlisse">
     <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee">
   </a>
-  <a href="https://github.com/sponsors/ihsanmokhlis">
+  <a href="https://github.com/sponsors/ihsanmokhlisse">
     <img src="https://img.shields.io/badge/Sponsor-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="GitHub Sponsors">
   </a>
 </p>
@@ -373,7 +373,7 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 | Share with others | Use different license for adaptations |
 | Use for education/research | Sublicense |
 
-📧 **Need commercial license?** Contact [Ihsan Mokhlis](https://github.com/ihsanmokhlis)
+📧 **Need commercial license?** Contact [Ihsan Mokhlis](https://github.com/ihsanmokhlisse)
 
 ## 🙏 Acknowledgments
 
@@ -391,7 +391,7 @@ Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
   Phase 2: Optional cloud, same privacy-first approach.<br><br>
   <sub>Created with ❤️ by <strong>Ihsan Mokhlis</strong></sub><br>
   <sub>
-    <a href="https://github.com/sponsors/ihsanmokhlis">💖 Sponsor</a> · 
-    <a href="https://buymeacoffee.com/ihsanmokhlis">☕ Buy me a coffee</a>
+    <a href="https://github.com/sponsors/ihsanmokhlisse">💖 Sponsor</a> · 
+    <a href="https://buymeacoffee.com/ihsanmokhlisse">☕ Buy me a coffee</a>
   </sub>
 </p>

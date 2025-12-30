@@ -34,7 +34,7 @@ Docling runs as an External Application (ExApp) using Nextcloud's AppAPI. This m
     ]]></description>
     <version>1.0.0</version>
     <licence>CC-BY-NC-SA-4.0</licence>
-    <author mail="contact@ihsanmokhlis.com" homepage="https://github.com/ihsanmokhlis">Ihsan Mokhlis</author>
+    <author mail="contact@ihsanmokhlisse.com" homepage="https://github.com/ihsanmokhlisse">Ihsan Mokhlis</author>
     <namespace>Docling</namespace>
     <category>files</category>
     <category>office</category>

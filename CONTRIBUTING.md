@@ -53,7 +53,7 @@ Help make Docling KB accessible to more users by adding translations.
 
 ```bash
 # Clone the repository
-git clone https://github.com/ihsanmokhlis/docling-nextcloud.git
+git clone https://github.com/ihsanmokhlisse/docling-nextcloud.git
 cd docling-nextcloud
 
 # Create virtual environment
@@ -107,8 +107,8 @@ make format
 
 ## 💬 Questions?
 
-- Open a [Discussion](https://github.com/ihsanmokhlis/docling-nextcloud/discussions)
-- Check existing [Issues](https://github.com/ihsanmokhlis/docling-nextcloud/issues)
+- Open a [Discussion](https://github.com/ihsanmokhlisse/docling-nextcloud/discussions)
+- Check existing [Issues](https://github.com/ihsanmokhlisse/docling-nextcloud/issues)
 
 ## 🏆 Contributors
 
@@ -121,13 +121,13 @@ Thank you to all our contributors! Your support keeps this project alive.
 If you find this project useful, please consider:
 
 - ⭐ **Starring** the repository
-- 💝 **Sponsoring** on [GitHub Sponsors](https://github.com/sponsors/ihsanmokhlis)
-- ☕ **Buying a coffee** on [Buy Me a Coffee](https://buymeacoffee.com/ihsanmokhlis)
+- 💝 **Sponsoring** on [GitHub Sponsors](https://github.com/sponsors/ihsanmokhlisse)
+- ☕ **Buying a coffee** on [Buy Me a Coffee](https://buymeacoffee.com/ihsanmokhlisse)
 
 Every contribution, whether code or coffee, helps maintain and improve this project!
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/ihsanmokhlis">Ihsan Mokhlis</a> and contributors
+  Made with ❤️ by <a href="https://github.com/ihsanmokhlisse">Ihsan Mokhlis</a> and contributors
 </p>
