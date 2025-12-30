@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>docling</id>
+    <name>Docling</name>
+    <summary>AI-powered document processing and conversion</summary>
+    <description><![CDATA[
+# Docling for Nextcloud
+
+Transform your documents with AI-powered processing! Docling brings advanced document understanding capabilities directly to your Nextcloud.
+
+## Features
+
+- **Multi-format Support**: Process PDF, DOCX, PPTX, XLSX, HTML, images, and more
+- **Smart Extraction**: Extract text, tables, formulas, and code from complex documents
+- **Multiple Output Formats**: Export to Markdown, HTML, JSON, or plain text
+- **OCR Support**: Extract text from scanned documents and images
+- **Batch Processing**: Process multiple documents at once
+- **Background Jobs**: Long-running conversions happen in the background
+
+## How it Works
+
+Docling runs as an External Application (ExApp) using Nextcloud's AppAPI. This means:
+- All processing happens securely within your Nextcloud infrastructure
+- No external services or API calls required
+- Your documents never leave your server
+
+## Requirements
+
+- Nextcloud 28 or higher
+- AppAPI app installed and configured with a Docker deploy daemon
+- Sufficient RAM for document processing (4GB+ recommended)
+
+    ]]></description>
+    <version>1.0.0</version>
+    <licence>CC-BY-NC-SA-4.0</licence>
+    <author mail="contact@ihsanmokhlis.com" homepage="https://github.com/ihsanmokhlis">Ihsan Mokhlis</author>
+    <namespace>Docling</namespace>
+    <category>files</category>
+    <category>office</category>
+    <category>tools</category>
+    <bugs>https://github.com/your-org/docling-nextcloud/issues</bugs>
+    <repository type="git">https://github.com/your-org/docling-nextcloud.git</repository>
+    <screenshot>https://raw.githubusercontent.com/your-org/docling-nextcloud/main/img/screenshot.png</screenshot>
+    <dependencies>
+        <nextcloud min-version="28" max-version="31"/>
+    </dependencies>
+    
+    <!-- ExApp Configuration -->
+    <external-app>
+        <docker-install>
+            <registry>ghcr.io</registry>
+            <image>your-org/docling-nextcloud</image>
+            <image-tag>latest</image-tag>
+        </docker-install>
+        <scopes>
+            <value>FILES</value>
+            <value>NOTIFICATIONS</value>
+        </scopes>
+        <protocol>http</protocol>
+        <system>false</system>
+    </external-app>
+</info>
+

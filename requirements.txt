@@ -1,0 +1,62 @@
+# =============================================================================
+# Docling Knowledge Base - Dependencies
+# =============================================================================
+
+# Nextcloud AppAPI SDK
+nc-py-api>=0.17.0
+
+# FastAPI and web server
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+httpx>=0.26.0
+python-multipart>=0.0.6
+aiofiles>=23.2.0
+
+# =============================================================================
+# Document Processing - Docling
+# =============================================================================
+docling>=2.5.0
+docling-core>=2.5.0
+
+# =============================================================================
+# Knowledge Base - Vector Database & Embeddings
+# =============================================================================
+
+# Vector Database
+chromadb>=0.4.22
+
+# Embeddings (sentence-transformers for local embeddings)
+sentence-transformers>=2.2.0
+
+# =============================================================================
+# LLM Integration - Local Embedded LLM (No external services needed!)
+# =============================================================================
+
+# Local LLM runtime - runs GGUF models directly on CPU
+llama-cpp-python>=0.2.50
+
+# Model download from HuggingFace
+huggingface-hub>=0.20.0
+
+# Optional: OpenAI-compatible API client (for external LLM option)
+openai>=1.10.0
+
+# =============================================================================
+# Optional: Enhanced Capabilities
+# =============================================================================
+
+# Better OCR (uncomment if needed)
+# easyocr>=1.7.0
+
+# LangChain integration (alternative RAG approach)
+# langchain>=0.1.0
+# langchain-community>=0.0.10
+
+# LlamaIndex integration (alternative RAG approach)  
+# llama-index>=0.9.0
+
+# =============================================================================
+# Development & Testing
+# =============================================================================
+pytest>=7.4.0
+pytest-asyncio>=0.23.0

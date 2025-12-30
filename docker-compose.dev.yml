@@ -1,0 +1,85 @@
+version: '3.8'
+
+# =============================================================================
+# Development Docker Compose for Docling Knowledge Base
+# 
+# NO EXTERNAL SERVICES REQUIRED! Everything runs in a single container.
+# 
+# Run: docker compose -f docker-compose.dev.yml up
+# =============================================================================
+
+services:
+  # Nextcloud instance
+  nextcloud:
+    image: nextcloud:28
+    container_name: nextcloud-dev
+    ports:
+      - "8080:80"
+    volumes:
+      - nextcloud_data:/var/www/html
+      - nextcloud_apps:/var/www/html/custom_apps
+    environment:
+      - SQLITE_DATABASE=nextcloud
+      - NEXTCLOUD_ADMIN_USER=admin
+      - NEXTCLOUD_ADMIN_PASSWORD=admin
+      - NEXTCLOUD_TRUSTED_DOMAINS=localhost
+    depends_on:
+      - docling
+
+  # Docling Knowledge Base ExApp
+  # Everything runs locally - no external LLM service needed!
+  docling:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: docling-kb
+    ports:
+      - "9000:9000"
+    environment:
+      - APP_ID=docling
+      - APP_VERSION=1.0.0
+      - APP_HOST=0.0.0.0
+      - APP_PORT=9000
+      - LOG_LEVEL=debug
+      - DEBUG=true
+      # LLM Configuration - Embedded local LLM (no external service!)
+      - LLM_MODEL=qwen2-0.5b  # Small & fast, ~350MB
+      # - LLM_MODEL=tinyllama-1.1b  # Better quality, ~670MB
+      # - LLM_MODEL=phi-3-mini  # Best quality, ~2.3GB
+      - DISABLE_LLM=false  # Set to "true" to disable chat features
+      # Embedding model for search
+      - EMBEDDING_MODEL=all-MiniLM-L6-v2
+    volumes:
+      - docling_data:/app/data
+      - docling_cache:/app/cache
+      # Mount source for hot reload during development
+      - ./ex_app/lib:/app:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 120s
+
+volumes:
+  nextcloud_data:
+  nextcloud_apps:
+  docling_data:
+  docling_cache:
+
+# =============================================================================
+# OPTIONAL: Add Ollama for better LLM performance (uncomment if desired)
+# =============================================================================
+#
+#   ollama:
+#     image: ollama/ollama:latest
+#     container_name: ollama
+#     ports:
+#       - "11434:11434"
+#     volumes:
+#       - ollama_data:/root/.ollama
+#
+# Then set in docling service:
+#   - LLM_PROVIDER=ollama
+#   - LLM_BASE_URL=http://ollama:11434/v1
+#   - LLM_MODEL=llama3.2
