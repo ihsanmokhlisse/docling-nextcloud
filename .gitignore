@@ -103,3 +103,7 @@ cache/
 *.pt
 *.onnx
 
+
+# Test data
+test_data/pdfs/*.pdf
+test_data/download.log

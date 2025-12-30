@@ -33,7 +33,8 @@ sentence-transformers>=2.2.0
 # =============================================================================
 
 # Local LLM runtime - runs GGUF models directly on CPU
-llama-cpp-python>=0.2.50
+# Note: llama-cpp-python is installed separately with CPU-only flags
+# llama-cpp-python>=0.2.50
 
 # Model download from HuggingFace
 huggingface-hub>=0.20.0

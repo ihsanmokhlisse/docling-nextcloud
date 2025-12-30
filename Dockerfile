@@ -25,8 +25,18 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 # Install Python dependencies
 COPY requirements.txt .
+
+# Install Python dependencies
+# Note: llama-cpp-python is optional and disabled by default for faster builds
+# Set INSTALL_LLM=true during build to include local LLM support
+ARG INSTALL_LLM=false
+
 RUN pip install --no-cache-dir --upgrade pip wheel setuptools && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt && \
+    if [ "$INSTALL_LLM" = "true" ]; then \
+        CMAKE_ARGS="-DGGML_BLAS=OFF" FORCE_CMAKE=1 \
+        pip install --no-cache-dir llama-cpp-python; \
+    fi
 
 # ==============================================================================
 # Production stage
@@ -52,6 +62,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     tesseract-ocr-spa \
     libgomp1 \
     curl \
+    # OpenCV dependencies
+    libgl1-mesa-glx \
+    libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean
 

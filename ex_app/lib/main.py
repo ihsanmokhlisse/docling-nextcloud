@@ -126,11 +126,11 @@ async def lifespan(app: FastAPI):
     # Initialize Vector Database
     if CHROMADB_AVAILABLE:
         try:
-            CHROMA_CLIENT = chromadb.Client(ChromaSettings(
-                chroma_db_impl="duckdb+parquet",
-                persist_directory="/app/data/chroma",
-                anonymized_telemetry=False,
-            ))
+            # Use new ChromaDB 0.4+ API with PersistentClient
+            CHROMA_CLIENT = chromadb.PersistentClient(
+                path="/app/data/chroma",
+                settings=ChromaSettings(anonymized_telemetry=False)
+            )
             COLLECTION = CHROMA_CLIENT.get_or_create_collection(
                 name="documents",
                 metadata={"hnsw:space": "cosine"}
@@ -164,11 +164,7 @@ async def lifespan(app: FastAPI):
     
     # Cleanup
     logger.info("👋 Shutting down Docling Knowledge Base ExApp...")
-    if CHROMADB_AVAILABLE and CHROMA_CLIENT:
-        try:
-            CHROMA_CLIENT.persist()
-        except:
-            pass
+    # Note: PersistentClient auto-persists, no need to call persist()
 
 
 # Create FastAPI app
@@ -178,7 +174,15 @@ APP = FastAPI(
     version="1.0.0",
     lifespan=lifespan,
 )
-APP.add_middleware(AppAPIAuthMiddleware)
+
+# Only add AppAPI middleware if connected to Nextcloud (not in standalone test mode)
+STANDALONE_MODE = os.environ.get("STANDALONE_MODE", "").lower() == "true" or \
+                  not os.environ.get("NEXTCLOUD_URL")
+
+if not STANDALONE_MODE:
+    APP.add_middleware(AppAPIAuthMiddleware)
+else:
+    logger.info("🔧 Running in STANDALONE mode (no Nextcloud middleware)")
 
 
 # =============================================================================
